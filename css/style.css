@@ -30,6 +30,7 @@
 }
 
 body {
+    height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(135deg, var(--bg-main), var(--bg-secondary), #1A1F3A, var(--primary-dark));
     color: var(--text-main);
