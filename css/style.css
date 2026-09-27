@@ -1,4 +1,25 @@
 @charset "UTF-8";
+
+/* =======================================================
+   🎨 VARIÁVEIS (SISTEMA DE CORES)
+======================================================= */
+:root {
+    --bg-main: #0A0F1D;
+    --bg-secondary: #111827;
+    --bg-card: rgba(255,255,255,0.05);
+
+    --primary: #8B5CF6;
+    --primary-dark: #3A0CA3;
+
+    --text-main: #E5E7EB;
+    --text-secondary: #9CA3AF;
+
+    --border: rgba(255,255,255,0.08);
+
+    --shadow-strong: 0 15px 35px rgba(0,0,0,0.6);
+    --shadow-soft: 0 8px 20px rgba(0,0,0,0.4);
+}
+
 /* =======================================================
    RESET / BASE
 ======================================================= */
@@ -6,11 +27,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
-:root
-{
-    
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, var(--bg-main), var(--bg-secondary), #1A1F3A, var(--primary-dark));
+    color: var(--text-main);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
 }
 
 html {
@@ -18,110 +45,13 @@ html {
 }
 
 /* =======================================================
-   BODY / LAYOUT GLOBAL
+   LAYOUT GLOBAL
 ======================================================= */
-body {
-    background: linear-gradient(135deg, #0A0F1D, #111827, #1A1F3A, #2A0F4F);
-    color: #E5E7EB;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 10px;
-}
-
-/* container central */
 .container {
     width: 100%;
     max-width: 1100px;
 }
 
-/* =======================================================
-   HEADER
-======================================================= */
-header {
-    background: linear-gradient(135deg, #111827, #1F2937, #3A0CA3);
-    padding: 25px;
-    border-radius: 14px;
-    margin-bottom: 15px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-}
-
-.header-content {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-header img {
-    width: 65px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(139,92,246,0.4);
-}
-
-.subtitle {
-    color: #8B5CF6;
-    font-size: 1.1rem;
-}
-
-.description {
-    color: #9CA3AF;
-    font-size: 0.9rem;
-}
-
-/* =======================================================
-   NAV / MENU
-======================================================= */
-nav {
-    background: rgba(17, 24, 39, 0.8);
-    backdrop-filter: blur(8px);
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-nav ul {
-    list-style: none;
-}
-
-nav li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-nav a {
-    color: #9CA3AF;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-    position: relative;
-}
-
-/* efeito underline animado */
-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background: #8B5CF6;
-    left: 0;
-    bottom: -5px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #fff;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* =======================================================
-   MAIN
-======================================================= */
 main {
     display: flex;
     flex-direction: column;
@@ -129,35 +59,131 @@ main {
 }
 
 /* =======================================================
+   HEADER / NAVBAR
+======================================================= */
+.header {
+    width: 100%;
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-strong);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    width: 55px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(139,92,246,0.4);
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.menu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #fff;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: var(--primary);
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* =======================================================
    SECTIONS
 ======================================================= */
-section {
-    background: linear-gradient(135deg, #111827, #1F2937, #3A0CA3);
+.section {
+    background: linear-gradient(135deg, var(--bg-secondary), #1F2937, var(--primary-dark));
     padding: 25px;
     border-radius: 14px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    box-shadow: var(--shadow-soft);
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
 }
 
 /* =======================================================
-   TITLES
+   HERO
 ======================================================= */
-h2 {
-    width: 100%;
-    text-align: center;
-    color: #8B5CF6;
-    margin-bottom: 10px;
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-h3 {
-    color: #8B5CF6;
-    margin-bottom: 10px;
+.hero-text {
+    flex: 1;
+}
+
+.hero-image {
+    flex: 1;
 }
 
 /* =======================================================
-   GRID (novo)
+   TITLES
+======================================================= */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    color: var(--primary);
+}
+
+h3 {
+    color: var(--primary);
+}
+
+/* =======================================================
+   TEXTOS
+======================================================= */
+p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #fff;
+}
+
+/* =======================================================
+   GRID
 ======================================================= */
 .grid-3 {
     display: grid;
@@ -170,16 +196,19 @@ h3 {
    CARDS
 ======================================================= */
 .card {
-    background: rgba(255,255,255,0.05);
+    background: var(--bg-card);
     padding: 18px;
     border-radius: 10px;
-    border-left: 4px solid #8B5CF6;
-    transition: 0.3s;
+    border-left: 4px solid var(--primary);
     position: relative;
     overflow: hidden;
+    transition: 0.3s;
 }
 
-/* efeito glow suave */
+.card:hover {
+    transform: translateY(-6px);
+}
+
 .card::before {
     content: "";
     position: absolute;
@@ -193,121 +222,75 @@ h3 {
     opacity: 1;
 }
 
-.card:hover {
-    transform: translateY(-6px) scale(1.01);
+.destaque {
+    border-left: 4px solid #fff;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
 }
 
 /* =======================================================
-   SOBRE
+   BOTÕES
 ======================================================= */
-.full {
-    width: 100%;
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.row {
-    display: flex;
-    gap: 15px;
-    width: 100%;
-    flex-wrap: wrap;
+.btn.primary {
+    background: var(--primary);
+    color: #fff;
 }
 
-.row .card {
-    flex: 1 1 300px;
+.btn.primary:hover {
+    background: #7C3AED;
 }
 
-/* =======================================================
-   TEXTOS
-======================================================= */
-p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    color: #D1D5DB;
-    text-align: justify;
+.btn.secondary {
+    border: 1px solid var(--primary);
+    color: var(--primary);
 }
 
-ul {
-    padding-left: 20px;
+.btn.secondary:hover {
+    background: var(--primary);
+    color: #fff;
 }
 
-li {
-    margin-bottom: 6px;
+.btn.small {
+    padding: 6px 12px;
 }
 
 /* =======================================================
    FOOTER
 ======================================================= */
-footer {
-    background: linear-gradient(135deg, #111827, #1F2937, #3A0CA3);
+.footer {
+    width: 100%;
+    margin-top: 15px;
     padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-secondary), #1F2937, var(--primary-dark));
     border-radius: 12px;
-    text-align: center;
-    margin-top: 15px;
-    color: #9CA3AF;
-}
-
-footer p {
-    text-align: center;
-}
-
-strong {
-    color: #fff;
-}
-
-/* =======================================================
-   QR CONTACTO
-======================================================= */
-.qr-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-
-.qr-box {
-    text-align: center;
-    background: rgba(255,255,255,0.05);
-    padding: 15px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: 0.3s;
-    width: 180px;
-}
-
-.qr-box:hover {
-    transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 0 20px rgba(139,92,246,0.3);
-}
-
-.qr-box img {
-    width: 120px;
-    margin: 10px 0;
-    border-radius: 6px;
-}
-
-.qr-box p {
-    font-size: 0.85rem;
-    color: #9CA3AF;
-}
-
-.rodape {
-    text-align: center;
+    color: var(--text-secondary);
 }
 
 /* =======================================================
    RESPONSIVO
 ======================================================= */
 @media (max-width: 600px) {
-    header {
-        text-align: center;
-    }
 
-    .header-content {
+    .nav-content {
         flex-direction: column;
+        gap: 10px;
     }
 
-    nav li {
+    .menu li {
         display: block;
         margin: 8px 0;
+    }
+
+    .hero-content {
+        flex-direction: column;
     }
 }
